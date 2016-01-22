@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.string :body, null: false
       t.integer :user_id, index: true, null: false
-      t.integer :best_answer_id, index: true, null: false
+      t.integer :best_answer_id, index: true
 
       t.timestamps null: false
     end
