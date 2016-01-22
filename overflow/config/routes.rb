@@ -3,17 +3,19 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'questions#index'
 
-  resources :questions do
-    resources :comments
+  resources :users, only: [:new, :create]
+
+  resources :questions, except: [:delete], :shallow => true do
+    resources :comments, only: [:new, :create]
     resources :votes, only: [:new, :create]
   end
 
-  resources :answers do
-    resources :comments
+  resources :answers, only: [:new, :create], :shallow => true do
+    resources :comments, only: [:new, :create]
     resources :votes, only: [:new, :create]
   end
 
-  resources :comments do
+  resources :comments, only: [:new, :create] , :shallow => true do
     resources :votes, only: [:new, :create]
   end
 
