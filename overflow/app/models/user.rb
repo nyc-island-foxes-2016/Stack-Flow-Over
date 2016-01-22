@@ -3,5 +3,8 @@ class User < ActiveRecord::Base
 
   validates :name, :password_digest, presence: true
 
-  has_many  :questions, :answers, :comments, :votes
+  has_many  :questions
+  has_many  :answers
+  has_many  :comments
+  has_many  :votes
 end
