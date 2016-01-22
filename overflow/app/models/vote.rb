@@ -1,3 +1,6 @@
 class Vote < ActiveRecord::Base
-  belongs_to :voteable
+  validates   :value, presence: true
+
+  belongs_to  :user
+  belongs_to  :voteable, polymorphic: true
 end
