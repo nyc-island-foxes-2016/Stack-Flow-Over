@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:new, :create] , :shallow => true do
     resources :votes, only: [:new, :create]
   end
+  resource :session, only: [:new, :create, :destroy]
 
   # You can have the root of your site routed with "root"
 

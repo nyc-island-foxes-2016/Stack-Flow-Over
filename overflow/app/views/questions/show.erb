@@ -1,0 +1,14 @@
+<div class="Question">
+  <h1><%=@question.body%></h1>
+  <p>Posted by:<%=@question.user.name%></p>
+  <p>Posted on:<%=@question.created_at %></p>
+</div>
+
+<div>
+  <h2>Comments:</h2>
+  <ul>
+  <%@question.comments.each do |comment|%>
+    <li><%=comment.body%></li>
+  <%end%>
+  </ul>
+</div>

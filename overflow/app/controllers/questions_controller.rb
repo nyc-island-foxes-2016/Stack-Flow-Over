@@ -8,5 +8,8 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
-  def
+  def show
+    @question = Question.includes(:comments).find(params[:id])
+  end
+
 end
