@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   resources :questions, except: [:delete], :shallow => true do
-    resources :comments, only: [:new, :create]
     resources :votes, only: [:new, :create]
+    resources :answers, only: [:new, :create]
+    resources :comments, only: [:new, :create]
   end
 
   resources :answers, only: [:new, :create], :shallow => true do
