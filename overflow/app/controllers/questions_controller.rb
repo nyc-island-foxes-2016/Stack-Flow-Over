@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
 
+before_action :set_question, except: [:index, :new, :create]
+
   def index
     @questions = Question.all
   end
@@ -12,4 +14,33 @@ class QuestionsController < ApplicationController
     @question = Question.includes(:comments).find(params[:id])
   end
 
+  def create
+    @question = Question.new(q_params)
+    if @question.save
+      redirect_to root_url
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update_attributes(q_params)
+      redirect_to @todo
+    else
+      render :edit
+    end
+  end
+
+private
+
+  def set_question
+    @question = Question.find(params[:id])
+  end
+
+  def q_params
+    params.require(:question).permit(:body, :user_id, :best_answer_id)
+  end
 end
