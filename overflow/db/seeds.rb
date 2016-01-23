@@ -15,11 +15,11 @@ Vote.delete_all
 end
 
 
-5.times do
+7.times do
   Answer.create(body: Faker::Lorem.sentence, question_id: Question.all.sample.id, user_id: User.all.sample.id)
 end
 
-3.times do
+8.times do
   Comment.create(body: Faker::Lorem.sentence, user_id: User.all.sample.id, commentable_id: Question.all.sample.id, commentable_type: "Question" )
   Comment.create(body: Faker::Lorem.sentence, user_id: User.all.sample.id, commentable_id: Answer.all.sample.id, commentable_type: "Answer" )
 end
