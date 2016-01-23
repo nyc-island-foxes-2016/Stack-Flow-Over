@@ -16,7 +16,7 @@ before_action :set_question, except: [:index, :new, :create]
 
   def create
     if current_user
-      @question = Question.new(q_params)
+      @question = current_user.questions.new(q_params)
       if @question.save
         redirect_to root_url
       else
