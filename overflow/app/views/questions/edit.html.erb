@@ -1,2 +1,8 @@
-<%= render 'form' %>
+<% if current_user == @question.user %>
+  <%= render 'form' %>
+<% else %>
+<ul>
+  <li>Only the original author can edit this post. Please <%=link_to "log in", new_session_path %> here.</li>
+</ul>
+<% end %>
 
