@@ -8,6 +8,10 @@ before_action :set_question, except: [:index, :new, :create]
 
   def new
     @question = Question.new
+    if !current_user
+      @errors = ["Please log in to ask a question"]
+      render :'sessions/new'
+    end
   end
 
   def show
@@ -23,12 +27,16 @@ before_action :set_question, except: [:index, :new, :create]
         render :new
       end
     else
-      @errors = "Please log in to ask a question"
-      render :new_session_path
+      @errors = ["Please log in to ask a question"]
+      render :questions_path
     end
   end
 
   def edit
+    if !current_user
+      @errors = ["Sorry, you must be the author of this question to edit it."]
+      render :'sessions/new'
+    end
   end
 
   def update
@@ -39,8 +47,8 @@ before_action :set_question, except: [:index, :new, :create]
         render :edit
       end
     else
-      @errors = "Sorry, you must be the author of this question to edit it."
-      render :new_session_path
+      @errors = ["Sorry, you must be the author of this question to edit it."]
+      render :'sessions/new'
     end
   end
 
