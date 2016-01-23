@@ -8,8 +8,9 @@
 </head>
 <body>
   <div id="nav">
-    <%= link_to 'Home', root_path %>
+    <%= link_to 'Home', root_path %> |
     <% if current_user %>
+      Welcome, <%=current_user.name %> |
       <%= link_to 'Log out', session_path, method: :delete %>
     <% else %>
       <%= link_to 'Log in', new_session_path %>
