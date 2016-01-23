@@ -15,7 +15,7 @@ before_action :set_question, except: [:index, :new, :create, :show]
   end
 
   def show
-    @question = Question.includes(:comments, answers: [:comments]).find(params[:id])
+     @question = Question.includes(comments: [:user], answers: [:user, comments: [:user]]).find(params[:id])
   end
 
   def create
