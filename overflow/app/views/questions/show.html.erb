@@ -3,22 +3,30 @@
   <p>Posted by:<%=@question.user.name%></p>
   <p>Posted on: <%=std_date_format(@question.created_at) %></p>
 
-<% if current_user == @question.user %>
-  <div id="edit-question">
-  <%=link_to "Edit question", edit_question_path %>
-  </div>
-<% end %>
-
+  <% if current_user == @question.user %>
+    <div id="edit-question">
+      <%=link_to "Edit question", edit_question_path %>
+    </div>
+  <% end %>
 </div>
 
 <div>
-  <h2>Comments:</h2>
+  <h3>Comments:</h3>
   <ul>
-  <%@question.comments.each do |comment|%>
-    <li><%=comment.body%></li>
-  <%end%>
+    <%@question.comments.each do |comment|%>
+      <li><%=comment.body%></li>
+    <%end%>
   </ul>
 </div>
+
+<% if @question.answers.length != 0 %>
+  <div>
+    <h2>Answer: </h2>
+    <% @question.answers.each do |answer| %>
+      <li><%=answer.body %></li>
+    <%end %>
+  </div>
+<% end %>
 
 <div>
   <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
