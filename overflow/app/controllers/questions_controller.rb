@@ -32,10 +32,15 @@ before_action :set_question, except: [:index, :new, :create]
   end
 
   def update
-    if @question.update_attributes(q_params)
-      redirect_to @todo
+    if current_user == @question.user
+      if @question.update_attributes(q_params)
+        redirect_to @question
+      else
+        render :edit
+      end
     else
-      render :edit
+      @errors = "Sorry, you must be the author of this question to edit it."
+      render :new_session_path
     end
   end
 
