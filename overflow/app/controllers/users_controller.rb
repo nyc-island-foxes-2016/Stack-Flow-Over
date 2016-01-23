@@ -10,6 +10,8 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to questions_path
     else
+      @user = User.new
+      @errors = user.errors.full_messages
       render :new
     end
   end
