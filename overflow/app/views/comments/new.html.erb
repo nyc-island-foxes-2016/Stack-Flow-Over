@@ -1,0 +1,9 @@
+<%= form_for @comment do %>
+  <fieldset>
+    <div>
+      <%= label_tag :body %>
+      <%= text_field_tag :body %>
+    </div>
+
+    <%= submit_tag 'Post comment' %>
+  </fieldset>
