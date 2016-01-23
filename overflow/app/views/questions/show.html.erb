@@ -1,6 +1,6 @@
 <div class="Question">
   <h1><%=@question.body%></h1>
-  <p>Posted by:<%=@question.user.name%></p>
+  <p>Posted by: <%=@question.user.name%></p>
   <p>Posted on: <%=std_date_format(@question.created_at) %></p>
 
   <% if current_user == @question.user %>
@@ -11,38 +11,17 @@
 </div>
 
 <% if @question.comments %>
-<div class="Comments">
-  <h3>Comments: </h3>
+<div class="comments">
+  <h3> Comments: </h3>
   <%= render @question.comments %>
 </div>
 <% end %>
 
 <% if @question.answers %>
-<div class="Answers">
+<div class="answers">
   <h2>Answer: </h2>
   <%= render @question.answers %>
 </div>
-<% end %>
-
-<div class="Comments">
-</div>
-
-<div>
-  <h3>Comments:</h3>
-  <ul>
-    <%@question.comments.each do |comment|%>
-      <li><%=comment.body%></li>
-    <%end%>
-  </ul>
-</div>
-
-<% if @question.answers.length != 0 %>
-  <div>
-    <h2>Answer: </h2>
-    <% @question.answers.each do |answer| %>
-      <li><%=answer.body %></li>
-    <%end %>
-  </div>
 <% end %>
 
 <div>
