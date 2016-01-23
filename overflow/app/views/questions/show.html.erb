@@ -2,6 +2,13 @@
   <h1><%=@question.body%></h1>
   <p>Posted by:<%=@question.user.name%></p>
   <p>Posted on: <%=std_date_format(@question.created_at) %></p>
+
+<% if current_user == @question.user %>
+  <div id="edit-question">
+  <%=link_to "Edit question", edit_question_path %>
+  </div>
+<% end %>
+
 </div>
 
 <div>
@@ -15,7 +22,4 @@
 
 <div>
   <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
-</div>
-
-<div>
 </div>
