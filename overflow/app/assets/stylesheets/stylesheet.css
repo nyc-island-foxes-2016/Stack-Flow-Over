@@ -3,6 +3,12 @@
   display: inline-block;
 }
 
+.show-username {
+  font-size: small;
+  font-style: italic;
+  display: inline-block;
+}
+
 a {
   text-decoration: none;
 }
