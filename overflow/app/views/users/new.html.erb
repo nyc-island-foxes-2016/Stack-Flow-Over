@@ -13,3 +13,11 @@
     <%= submit_tag 'Register' %>
   </fieldset>
 <% end %>
+
+<% if @errors %>
+  <ul>
+    <% @errors.each do |message| %>
+      <li> <%= message %> </li>
+    <% end %>
+  </ul>
+<% end %>
