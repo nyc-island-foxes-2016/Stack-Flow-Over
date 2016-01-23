@@ -24,7 +24,7 @@ before_action :set_question, except: [:index, :new, :create]
       end
     else
       @errors = "Please log in to ask a question"
-      render: new_session_path
+      render :new_session_path
     end
   end
 
