@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-before_action :set_question, except: [:index, :new, :create]
+before_action :set_question, except: [:index, :new, :create, :show]
 
   def index
     @questions = Question.all
@@ -15,7 +15,7 @@ before_action :set_question, except: [:index, :new, :create]
   end
 
   def show
-    @question = Question.includes(:comments).find(params[:id])
+    @question = Question.includes(:comments, answers: [:comments]).find(params[:id])
   end
 
   def create
