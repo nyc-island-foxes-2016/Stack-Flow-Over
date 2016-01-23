@@ -1,6 +1,12 @@
 <li>
   <div>
      <%=answer.body%>
-     <div class="show-username"> - <%=answer.user.name%> <%=answer.created_at%></div>
+     <div class="show-username"> - <%=answer.user.name%> <%=std_date_format(answer.created_at)%></div>
   </div>
 </li>
+<% if answer.comments %>
+<div class="comments">
+  <h3> Comments: </h3>
+  <%= render answer.comments %>
+</div>
+<% end %>

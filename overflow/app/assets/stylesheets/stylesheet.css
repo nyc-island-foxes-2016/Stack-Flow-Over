@@ -8,6 +8,13 @@
   font-style: italic;
   display: inline-block;
 }
+.answers{
+  margin-left: 1em;
+}
+
+.comments{
+  margin-left: 2em;
+}
 
 a {
   text-decoration: none;
