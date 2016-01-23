@@ -1,3 +1,8 @@
 <li>
   <%=link_to question.body, question_path(question) %>
+  <div id="edit-q-index">
+    <% if current_user == question.user %>
+     <%=link_to "Edit", edit_question_path(question)%>
+    <% end %>
+</div>
 </li>
