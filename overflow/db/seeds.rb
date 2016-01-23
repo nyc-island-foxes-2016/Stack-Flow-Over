@@ -28,15 +28,15 @@ vote_value = [1, -1]
 4.times do
 
   rand(1..5).times do
-    Vote.create(user_id: User.all.sample.id, value: vote_value.sample, voteable_id:Comment.all.sample.id, voteable_type: "Comment" )
+    Vote.create(user_id: User.all.sample.id, vote_type: vote_value.sample, voteable_id:Comment.all.sample.id, voteable_type: "Comment" )
   end
 
   rand(1..5).times do
-    Vote.create(user_id: User.all.sample.id, value: vote_value.sample, voteable_id:Question.all.sample.id, voteable_type: "Question")
+    Vote.create(user_id: User.all.sample.id, vote_type: vote_value.sample, voteable_id:Question.all.sample.id, voteable_type: "Question")
   end
 
   rand(1..5).times do
-    Vote.create(user_id: User.all.sample.id, value: vote_value.sample, voteable_id:Answer.all.sample.id, voteable_type: "Answer")
+    Vote.create(user_id: User.all.sample.id, vote_type: vote_value.sample, voteable_id:Answer.all.sample.id, voteable_type: "Answer")
   end
 end
 
