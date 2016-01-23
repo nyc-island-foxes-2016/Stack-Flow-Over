@@ -15,11 +15,16 @@ before_action :set_question, except: [:index, :new, :create]
   end
 
   def create
-    @question = Question.new(q_params)
-    if @question.save
-      redirect_to root_url
+    if current_user
+      @question = current_user.questions.new(q_params)
+      if @question.save
+        redirect_to root_url
+      else
+        render :new
+      end
     else
-      render :new
+      @errors = "Please log in to ask a question"
+      render :new_session_path
     end
   end
 
