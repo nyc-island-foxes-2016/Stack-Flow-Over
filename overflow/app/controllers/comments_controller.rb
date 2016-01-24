@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
   def new
-    @comment = Comment.new
+    if logged_in?
+      @comment = Comment.new
+    else
+      @errors = ["Please log in to post a comment"]
+      render :'sessions/new'
+    end
   end
 
   def create
