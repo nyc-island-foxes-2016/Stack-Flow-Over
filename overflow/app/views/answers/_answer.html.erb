@@ -4,6 +4,11 @@
         <span class="chosen-answer"> &#x2606; </span>
       <% end %>
 
+    <span>
+      <%= link_to "<span> &uarr; </span>".html_safe, new_answer_vote_path(answer.id, vote_type: 1)%> <%= answer.vote_score %>
+        <%= link_to "<span> &darr; </span>".html_safe, new_answer_vote_path(answer.id, vote_type: -1) %>
+    </span>
+
       <%=answer.body%>
       <div class="show-username">
         - <%=answer.user.name%>, <%=std_date_format(answer.created_at)%>
@@ -25,7 +30,6 @@
       <% end %>
     </div>
 
-    <p>TODO: add votes</p>
   </div>
 </li>
 
