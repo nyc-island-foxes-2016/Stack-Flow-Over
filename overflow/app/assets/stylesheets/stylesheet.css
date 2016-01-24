@@ -3,7 +3,8 @@ a {
 }
 
 .best-answer-form{
-  display: inline-block;
+  margin: inherit;
+  display: inline;
   border: none;
 }
 
@@ -11,11 +12,15 @@ a {
   border: none;
 }
 
+.answer-body {
+  display: inline;
+}
 .chosen-answer{
   display: inline-block;
   border: none;
   font-size: medium;
 }
+
 
 .font-small {
   font-size: small;
