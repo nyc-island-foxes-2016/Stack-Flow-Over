@@ -10,13 +10,15 @@
   <% end %>
 </div>
 
-<div class="font-small">
-  <%= link_to "Answer this question", new_question_answer_path(params[:id]) %>
-</div>
+<% if current_user %>
+  <div class="font-small">
+    <%= link_to "Answer this question", new_question_answer_path(params[:id]) %>
+  </div>
 
-<div class="font-small">
-  <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
-</div>
+  <div class="font-small">
+    <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
+  </div>
+<% end %>
 
 <% if !@question.comments.empty? %>
   <div class="comments">
@@ -29,15 +31,5 @@
   <div class="answers">
     <h3>Answers: </h3>
     <%= render @question.answers %>
-  </div>
-<% end %>
-
-<% if current_user %>
-  <div>
-    <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
-  </div>
-
-  <div>
-    <%= link_to "Answer this question", new_question_answer_path(params[:id]) %>
   </div>
 <% end %>
