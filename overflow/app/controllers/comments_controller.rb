@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = Comment.new(comment_params)
+     comment = Comment.new(comment_params)
+
     if !!params[:question_id]
       comment.commentable_id = params[:question_id]
       comment.commentable_type = "Question"
