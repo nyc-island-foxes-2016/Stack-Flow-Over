@@ -1,12 +1,18 @@
 <li>
   <div>
-     <%=answer.body%>
-     <div class="show-username"> - <%=answer.user.name%> <%=std_date_format(answer.created_at)%></div>
+   <%=answer.body%>
+   <div class="show-username">
+    - <%=answer.user.name%>, <%=std_date_format(answer.created_at)%>
+    </div>
+    <div class="font-small">
+      <%= link_to "Add a comment", new_question_comment_path(params[:id]) %>
+    </div>
   </div>
 </li>
+
 <% if answer.comments %>
-<div class="comments">
-  <h3> Comments: </h3>
-  <%= render answer.comments %>
-</div>
+  <div class="comments">
+    <h3> Comments: </h3>
+    <%= render answer.comments %>
+  </div>
 <% end %>

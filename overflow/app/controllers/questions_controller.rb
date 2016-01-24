@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 before_action :set_question, except: [:index, :new, :create, :show]
 
   def index
-    @questions = Question.all
+    @questions = Question.includes(:user)
   end
 
   def new

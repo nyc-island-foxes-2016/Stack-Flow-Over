@@ -3,6 +3,9 @@
   display: inline-block;
 }
 
+.font-small {
+  font-size: small;
+}
 .show-username {
   font-size: small;
   font-style: italic;

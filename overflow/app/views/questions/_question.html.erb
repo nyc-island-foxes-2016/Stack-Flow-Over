@@ -1,5 +1,8 @@
 <li>
   <%=link_to question.body, question_path(question) %>
+      <div class="show-username">
+    - <%=question.user.name%>, <%=std_date_format(question.created_at)%>
+    </div>
   <div id="edit-q-index">
     <% if current_user == question.user %>
      <%=link_to "Edit", edit_question_path(question)%>
