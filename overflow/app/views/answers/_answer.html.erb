@@ -1,31 +1,32 @@
 <li>
-  <div>
-    <% if answer.question.user == current_user %>
+    <div class="answers">
       <% if answer.question.best_answer_id == answer.id %>
-        <div class="chosen-answer">
-          &#x2606;
-        </div>
-      <% else %>
-        <div class="best-answer-form">
-          <%= form_for answer.question do |f| %>
-          <fieldset>
-            <%= f.hidden_field :best_answer_id, :value => answer.id%>
-            <div>
-              <%= submit_tag 'Select Answer' %>
-            </div>
-          </fieldset>
-          <%end %>
-        </div>
+        <span class="chosen-answer"> &#x2606; </span>
       <% end %>
-    <% end %>
-
-   <%=answer.body%>
-   <div class="show-username">
-    - <%=answer.user.name%>, <%=std_date_format(answer.created_at)%>
-    </div>
-    <div class="font-small">
+      <%=answer.body%>
+      <div class="show-username">
+        - <%=answer.user.name%>, <%=std_date_format(answer.created_at)%>
+      </div>
+          <div class="font-small">
       <%= link_to "Add a comment", new_answer_comment_path(answer) %>
     </div>
+    </div>
+
+    <div class="best-answer-form">
+      <% if answer.question.user == current_user && answer.question.best_answer_id != answer.id%>
+        <%= form_for answer.question do |f| %>
+        <fieldset>
+          <%= f.hidden_field :best_answer_id, :value => answer.id%>
+            <%= submit_tag 'Favorite Solution' %>
+        </fieldset>
+        <% end %>
+      <% end %>
+
+
+
+    </div>
+
+
   </div>
 </li>
 

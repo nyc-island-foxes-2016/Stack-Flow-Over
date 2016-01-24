@@ -40,7 +40,6 @@ before_action :set_question, except: [:index, :new, :create, :show]
   end
 
   def update
-    binding.pry
     if current_user == @question.user
       if @question.update_attributes(q_params)
         redirect_to @question
