@@ -18,18 +18,18 @@
   <%= link_to "Answer this question", new_question_answer_path(params[:id]) %>
 </div>
 
-<% if @question.comments %>
-<div class="comments">
-  <h3> Comments: </h3>
-  <%= render @question.comments %>
-</div>
+<% if !@question.comments.empty? %>
+  <div class="comments">
+    <h3> Comments: </h3>
+    <%= render @question.comments %>
+  </div>
 <% end %>
 
-<% if @question.answers %>
-<div class="answers">
-  <h3>Answers: </h3>
-  <%= render @question.answers %>
-</div>
+<% if !@question.answers.empty? %>
+  <div class="answers">
+    <h3>Answers: </h3>
+    <%= render @question.answers %>
+  </div>
 <% end %>
 
 

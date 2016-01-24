@@ -5,12 +5,12 @@
     - <%=answer.user.name%>, <%=std_date_format(answer.created_at)%>
     </div>
     <div class="font-small">
-      <%= link_to "Add a comment", new_question_comment_path(params[:id]) %>
+      <%= link_to "Add a comment", new_answer_comment_path(answer) %>
     </div>
   </div>
 </li>
 
-<% if answer.comments %>
+<% if !answer.comments.empty? %>
   <div class="comments">
     <h3> Comments: </h3>
     <%= render answer.comments %>
