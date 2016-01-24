@@ -2,14 +2,19 @@
   <h1><%=@question.body%></h1>
   <p>Posted by: <%=@question.user.name%></p>
   <p>Posted on: <%=std_date_format(@question.created_at) %></p>
-  <p>upvotes: <%= @question.up_voted %> downvotes: <%= @question.down_voted%></p>
+</div>
+<div>
+  <p><%= link_to "Vote Up:", new_question_vote_path(params[:id], vote_type: 1)%> <%= @question.up_voted %>
+      <%= link_to "Vote Down:", new_question_vote_path(params[:id]) %><%= @question.down_voted%>
+  </p>
+</div>
+
 
   <% if current_user == @question.user %>
     <div id="edit-question">
       <%=link_to "Edit question", edit_question_path %>
     </div>
   <% end %>
-</div>
 
 <% if current_user %>
   <div class="font-small">
