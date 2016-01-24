@@ -7,5 +7,7 @@ class Answer < ActiveRecord::Base
   has_many    :comments, as: :commentable
   has_many    :votes, as: :voteable
 
-  include Selectable
+  def vote_score
+    self.votes.sum(:vote_type)
+  end
 end

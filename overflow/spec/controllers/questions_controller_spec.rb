@@ -49,7 +49,6 @@ describe QuestionsController do
       get :edit, id: question
       response.should render_template :'sessions/new'
     end
-
   end
 
 
