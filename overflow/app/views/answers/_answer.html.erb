@@ -1,5 +1,24 @@
 <li>
   <div>
+    <% if answer.question.user == current_user %>
+      <% if answer.question.best_answer_id == answer.id %>
+        <div class="chosen-answer">
+          &#x2606;
+        </div>
+      <% else %>
+        <div class="best-answer-form">
+          <%= form_for answer.question do |f| %>
+          <fieldset>
+            <%= f.hidden_field :best_answer_id, :value => answer.id%>
+            <div>
+              <%= submit_tag 'Select Answer' %>
+            </div>
+          </fieldset>
+          <%end %>
+        </div>
+      <% end %>
+    <% end %>
+
    <%=answer.body%>
    <div class="show-username">
     - <%=answer.user.name%>, <%=std_date_format(answer.created_at)%>
