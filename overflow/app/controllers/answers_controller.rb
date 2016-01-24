@@ -1,6 +1,11 @@
 class AnswersController < ApplicationController
   def new
-    @answer = Answer.new
+    if logged_in?
+      @answer = Answer.new
+    else
+      @errors = ["Please log in to post an answer"]
+      render :'sessions/new'
+    end
   end
 
   def create
