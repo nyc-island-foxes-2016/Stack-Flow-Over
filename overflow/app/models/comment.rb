@@ -5,4 +5,8 @@ class Comment < ActiveRecord::Base
   belongs_to  :commentable, polymorphic: true
 
   has_many    :votes, as: :voteable
+
+  def vote_score
+    self.votes.sum(:vote_type)
+  end
 end
