@@ -11,11 +11,11 @@
 </div>
 
 <div class="font-small">
-  <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
+  <%= link_to "Answer this question", new_question_answer_path(params[:id]) %>
 </div>
 
 <div class="font-small">
-  <%= link_to "Answer this question", new_question_answer_path(params[:id]) %>
+  <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
 </div>
 
 <% if !@question.comments.empty? %>
