@@ -1,6 +1,11 @@
 class VotesController < ApplicationController
   def new
-    @vote = Vote.new(vote_params).save
+    if logged_in?
+      @vote = Vote.create(vote_params)
+    else
+      @errors = ["You must be logged in to vote"]
+      render :'sessions/new'
+    end
   end
 
   def create

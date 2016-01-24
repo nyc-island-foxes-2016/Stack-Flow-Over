@@ -5,7 +5,7 @@
 </div>
 <div>
   <p><%= link_to "<span> &uarr; </span>".html_safe, new_question_vote_path(params[:id], vote_type: 1)%> <%= @question.vote_score %>
-      <%= link_to "<span> &darr; </span>".html_safe, new_question_vote_path(params[:id]) %>
+      <%= link_to "<span> &darr; </span>".html_safe, new_question_vote_path(params[:id], vote_type: -1) %>
   </p>
 </div>
 
