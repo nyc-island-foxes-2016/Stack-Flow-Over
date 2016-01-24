@@ -1,2 +1,6 @@
 general:
   build_dir: overflow
+
+test:
+  override:
+  - ruby ./overflow/app/spec --unit-tests
