@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     comment.commentable_id = params[:question_id]
     # if !!params[:question_id]
     #   comment.commentable_id = params[:question_id]
-      comment.commentable_type = "Question"
+    #   comment.commentable_type = "Question"
     #   redirect_path_name = params[:question_id]
     # else
     #   comment.commentable_id = params[:answer_id]
