@@ -1,8 +1,10 @@
 <li>
+  <span>
+    <%= link_to "<span> &uarr; </span>".html_safe, new_comment_vote_path(comment.id, vote_type: 1)%> <%= comment.vote_score %>
+      <%= link_to "<span> &darr; </span>".html_safe, new_comment_vote_path(comment.id, vote_type: -1) %>
+  </span>
   <div class="comments">
      <%=comment.body%>
      <div class="show-username"> - <%=comment.user.name%>, <%=std_date_format(comment.created_at)%></div>
-     <p>TODO: add votes</p>
-
   </div>
 </li>

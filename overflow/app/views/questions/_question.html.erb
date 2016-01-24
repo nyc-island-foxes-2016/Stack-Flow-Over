@@ -1,6 +1,7 @@
 <li>
   <span>
-    <%= question.vote_score %>
+    <%= link_to "<span> &uarr; </span>".html_safe, new_question_vote_path(question.id, vote_type: 1)%> <%= question.vote_score %>
+      <%= link_to "<span> &darr; </span>".html_safe, new_question_vote_path(question.id, vote_type: -1) %>
   </span>
   <%=link_to question.body, question_path(question) %>
     <div class="show-username">
