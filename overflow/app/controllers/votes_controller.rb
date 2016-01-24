@@ -1,17 +1,16 @@
 class VotesController < ApplicationController
   def new
-    if @vote = Vote.new(vote_params)
-      binding.pry
-    end
+    @vote = Vote.new(vote_params).save
+    binding.pry
   end
 
   def create
-    @vote = Vote.new(vote_params)
     binding.pry
-
+    @vote = Vote.new(vote_params)
   end
 
   private
+
   def vote_params
     {vote_type: params[:vote_type], user_id: current_user.id, voteable_type: voteable_type_setter, voteable_id: voteable_id_setter }
   end
