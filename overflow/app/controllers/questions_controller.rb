@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 before_action :set_question, except: [:index, :new, :create, :show]
 
   def index
-    @questions = Question.all
+    @questions = Question.includes(:user)
   end
 
   def new
@@ -40,6 +40,7 @@ before_action :set_question, except: [:index, :new, :create, :show]
   end
 
   def update
+    binding.pry
     if current_user == @question.user
       if @question.update_attributes(q_params)
         redirect_to @question

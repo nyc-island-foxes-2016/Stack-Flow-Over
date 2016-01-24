@@ -1,8 +1,25 @@
-#edit-q-index {
-  font-size: small;
-  display: inline-block;
+a {
+  text-decoration: none;
 }
 
+.best-answer-form{
+  display: inline-block;
+  border: none;
+}
+
+.best-answer-form fieldset{
+  border: none;
+}
+
+.chosen-answer{
+  display: inline-block;
+  border: none;
+  font-size: medium;
+}
+
+.font-small {
+  font-size: small;
+}
 .show-username {
   font-size: small;
   font-style: italic;
@@ -16,6 +33,7 @@
   margin-left: 2em;
 }
 
-a {
-  text-decoration: none;
+#edit-q-index {
+  font-size: small;
+  display: inline-block;
 }

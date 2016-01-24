@@ -10,25 +10,27 @@
   <% end %>
 </div>
 
-<% if @question.comments %>
-<div class="comments">
-  <h3> Comments: </h3>
-  <%= render @question.comments %>
-</div>
-<% end %>
-
-<% if @question.answers %>
-<div class="answers">
-  <h2>Answer: </h2>
-  <%= render @question.answers %>
-</div>
-<% end %>
-
-<div>
+<div class="font-small">
   <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
 </div>
 
-<div>
+<div class="font-small">
   <%= link_to "Answer this question", new_question_answer_path(params[:id]) %>
 </div>
+
+<% if !@question.comments.empty? %>
+  <div class="comments">
+    <h3> Comments: </h3>
+    <%= render @question.comments %>
+  </div>
+<% end %>
+
+<% if !@question.answers.empty? %>
+  <div class="answers">
+    <h3>Answers: </h3>
+    <%= render @question.answers %>
+  </div>
+<% end %>
+
+
 
