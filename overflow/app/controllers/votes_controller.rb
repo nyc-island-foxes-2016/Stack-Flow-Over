@@ -1,11 +1,9 @@
 class VotesController < ApplicationController
   def new
     @vote = Vote.new(vote_params).save
-    binding.pry
   end
 
   def create
-    binding.pry
     @vote = Vote.new(vote_params)
   end
 
