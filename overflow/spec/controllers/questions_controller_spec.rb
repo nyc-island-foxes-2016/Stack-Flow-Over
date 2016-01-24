@@ -39,7 +39,16 @@ describe QuestionsController do
 
   end
 
-  xdescribe "#edit" do
+  describe "#edit" do
+    it "assigns the requested question to @question" do
+      get :edit, id: question
+      assigns(:question).should eq(question)
+    end
+
+    it "renders the :show view" do
+      get :edit, id: question
+      response.should render_template :'sessions/new'
+    end
 
   end
 
