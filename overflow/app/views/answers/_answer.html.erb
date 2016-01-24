@@ -3,13 +3,15 @@
       <% if answer.question.best_answer_id == answer.id %>
         <span class="chosen-answer"> &#x2606; </span>
       <% end %>
+
       <%=answer.body%>
       <div class="show-username">
         - <%=answer.user.name%>, <%=std_date_format(answer.created_at)%>
       </div>
-          <div class="font-small">
+
+      <div class="font-small">
       <%= link_to "Add a comment", new_answer_comment_path(answer) %>
-    </div>
+      </div>
     </div>
 
     <div class="best-answer-form">
@@ -21,12 +23,9 @@
         </fieldset>
         <% end %>
       <% end %>
-
-
-
     </div>
 
-
+    <p>upvotes:<%= answer.up_voted %> downvotes: <%= answer.down_voted %></p>
   </div>
 </li>
 

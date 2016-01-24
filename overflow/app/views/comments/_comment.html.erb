@@ -2,5 +2,7 @@
   <div class="comments">
      <%=comment.body%>
      <div class="show-username"> - <%=comment.user.name%>, <%=std_date_format(comment.created_at)%></div>
+     <p> upvotes: <%= comment.up_voted %> downvotes: <%= comment.down_voted %> </p>
+
   </div>
 </li>
