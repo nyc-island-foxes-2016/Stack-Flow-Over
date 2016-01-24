@@ -10,14 +10,6 @@
   <% end %>
 </div>
 
-<div class="font-small">
-  <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
-</div>
-
-<div class="font-small">
-  <%= link_to "Answer this question", new_question_answer_path(params[:id]) %>
-</div>
-
 <% if !@question.comments.empty? %>
   <div class="comments">
     <h3> Comments: </h3>
@@ -33,11 +25,11 @@
 <% end %>
 
 <% if current_user %>
-  <div>
+  <div class="font-small">
     <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
   </div>
 
-  <div>
+  <div class="font-small">
     <%= link_to "Answer this question", new_question_answer_path(params[:id]) %>
   </div>
 <% end %>
