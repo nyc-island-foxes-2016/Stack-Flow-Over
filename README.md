@@ -18,3 +18,5 @@ Trello board: https://trello.com/b/nI7p1YfY
 - As a User, I want to leave comments on questions or answers.
 - As a User, I want to select the best answer to a question I posted.
 - As a User, I want to sort the current questions by date, votes, or 'trending'.
+
+CircleCI: https://circleci.com/gh/nyc-island-foxes-2016/Stack-Flow-Over/1
