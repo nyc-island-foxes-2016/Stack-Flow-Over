@@ -1,8 +1,10 @@
-<!-- for testing questions controller & view <% if !!params[:question_id] %>
+
+
+<% if !!params[:question_id] %>
   <% url_path = question_comments_path %>
 <% else %>
   <% url_path = answer_comments_path %>
-<% end %> -->
+<% end %>
 
 <%= form_for @comment, url: url_path do |f|%>
   <fieldset>
