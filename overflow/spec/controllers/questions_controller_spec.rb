@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe QuestionsController do
   let(:question) {FactoryGirl.create :q_with_answers}
+  let (:current_user) {FactoryGirl.create :user}
 
   describe "#index" do
     it "assigns the questions to Question.all" do
@@ -36,7 +37,6 @@ describe QuestionsController do
       assigns(:question).answers.should eq(question.answers)
     end
 
-
   end
 
   describe "#edit" do
@@ -48,6 +48,14 @@ describe QuestionsController do
     it "renders the :show view" do
       get :edit, id: question
       response.should render_template :'sessions/new'
+    end
+  end
+
+  describe "#create" do
+    it "creates a new question" do
+      expect{
+        post :create, question: FactoryGirl.attributes_for(:question)}.to change(Question, :count).by(1)
+      }
     end
   end
 
