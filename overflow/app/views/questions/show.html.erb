@@ -1,0 +1,41 @@
+<div class="Question" id="question-show">
+    <div class="vote-arrows">
+      <p><%= link_to "<span> &#x25B3; </span>".html_safe, new_question_vote_path(@question.id, vote_type: 1)%> </p>
+      <p> <%= @question.vote_score %> </p>
+        <p> <%= link_to "<span> &#x25BD; </span>".html_safe, new_question_vote_path(@question.id, vote_type: -1) %></p>
+   </div>
+  <div class = "question-show">
+    <h3><%=@question.body%></h3>
+    <div class="show-username">
+      - <%=@question.user.name%>, <%=std_date_format(@question.created_at)%>
+    </div>
+  </div>
+</div>
+
+  <% if current_user == @question.user %>
+    <div id="edit-question">
+      <%=link_to "Edit question", edit_question_path %>
+    </div>
+  <% end %>
+
+  <div class="font-small">
+    <%= link_to "Answer this question", new_question_answer_path(params[:id]) %>
+  </div>
+
+  <div class="font-small">
+    <%= link_to "New Comment", new_question_comment_path(params[:id]) %>
+  </div>
+
+<% if !@question.comments.empty? %>
+  <div class="comments">
+    <h3> Comments: </h3>
+    <%= render @question.comments %>
+  </div>
+<% end %>
+
+<% if !@question.answers.empty? %>
+  <div class="answers">
+    <h3>Answers: </h3>
+    <%= render @question.answers %>
+  </div>
+<% end %>

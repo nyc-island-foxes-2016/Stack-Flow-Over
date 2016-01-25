@@ -1,0 +1,10 @@
+<% if @errors %>
+  <% @errors.each do |error|%>
+    <p>
+      <%= error %>
+    </p>
+  <% end %>
+<% else %>
+    <h2>Thank you for voting!</h2>
+<% end %>
+

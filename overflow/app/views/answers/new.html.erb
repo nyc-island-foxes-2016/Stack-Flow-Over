@@ -1,0 +1,12 @@
+<%= form_for @answer, url: question_answers_path do |f| %>
+  <fieldset>
+    <div>
+      <%=f.label :body %>
+      <%=f.text_field :body %>
+    </div>
+
+    <div>
+      <%= submit_tag 'Submit Answer' %>
+    </div>
+  </fieldset>
+<%end %>
