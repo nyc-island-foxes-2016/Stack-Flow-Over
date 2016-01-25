@@ -10,4 +10,6 @@ class Answer < ActiveRecord::Base
   def vote_score
     self.votes.sum(:vote_type)
   end
+
+  #You could possibly do your validates_uniqueness here with a scope
 end

@@ -8,6 +8,22 @@ class CommentsController < ApplicationController
     end
   end
 
+=begin
+If your routes are
+     question_comments POST   /questions/:question_id/comments(.:format)     comments#create
+     answer_comments POST   /answers/:answer_id/comments(.:format)         comments#create
+     you could do something like 
+      http://stackoverflow.com/questions/23088709/finding-parent-in-rails-polymorphic-association
+
+    def find_commentable
+      resource, id = request.path.split('/')[1, 2]
+      @commentable = resource.singularize.classify.constantize.find(id)
+    end
+
+    It's a bit clever-clever but makes life simpler if you ever make something else commentable
+=end
+
+
   def create
      comment = Comment.new(comment_params)
 

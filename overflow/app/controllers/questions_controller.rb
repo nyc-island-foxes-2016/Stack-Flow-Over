@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
-
 before_action :set_question, except: [:index, :new, :create, :show]
+# you can skip before_action filters from application controller here 
+# e.g. skip_before_action :ensure_current_user, only[:create, :new]
+# would allow non-logged in users to ask questions
 
   def index
     @questions = Question.includes(:user).order(created_at: :desc)
@@ -22,8 +24,10 @@ before_action :set_question, except: [:index, :new, :create, :show]
     if current_user
       @question = current_user.questions.new(q_params)
       if @question.save
+        #Nice to use flash to inform user question was saved
         redirect_to root_url
       else
+        #error message? you could render errors on the form if there are any
         render :new
       end
     else
@@ -40,6 +44,7 @@ before_action :set_question, except: [:index, :new, :create, :show]
   end
 
   def update
+    # Think about having can_edit?(user) on the question
     if current_user == @question.user
       if @question.update_attributes(q_params)
         redirect_to @question
@@ -59,6 +64,8 @@ private
   end
 
   def q_params
+    # Don't allow user_id to come from the front end. Better would be
+    # params.require(:question).permit(:body, :best_answer_id).merge(user: current_user)
     params.require(:question).permit(:body, :user_id, :best_answer_id)
   end
 end

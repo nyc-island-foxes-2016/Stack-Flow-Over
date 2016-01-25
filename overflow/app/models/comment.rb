@@ -6,6 +6,7 @@ class Comment < ActiveRecord::Base
 
   has_many    :votes, as: :voteable
 
+  #maybe vote_value would have been a better name
   def vote_score
     self.votes.sum(:vote_type)
   end
