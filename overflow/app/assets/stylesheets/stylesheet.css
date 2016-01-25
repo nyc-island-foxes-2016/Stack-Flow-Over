@@ -1,14 +1,22 @@
 html{
   font-family: 'Open Sans', sans-serif;
   margin: 0;
+  background-color: #EAF0F0;
 }
 
 header {
   margin: 0;
-  padding: 50px;
+  padding: 30px;
   border: 1px solid black;
-  background-color: #1affff;
+  background-color: #597294;
+}
 
+header a {
+  color: white;
+}
+
+header a:hover {
+  color: black;
 }
 
 header h1{
@@ -19,19 +27,14 @@ header h1 a {
   color: black
 }
 
+header h1 a:hover {
+  color: white
+}
+
 header nav{
   display: inline-block;
   float: right;
   padding-top: 1%;
-}
-
-#question-show{
-  border-top: 1px gray dotted;
-  border-bottom: 1px gray dotted;
-  margin: 2%;
-  position: relative;
-  padding: auto;
-
 }
 
 li {
@@ -68,12 +71,22 @@ margin: 0;
   color: black;
 }
 
+.question-text a:hover {
+  color: #41586B;
+}
+
+#edit-question a:hover {
+  color: black;
+}
+
+
 .question-show{
   display: inline-block;
   position: absolute;
   margin-left: 1%;
   top: 30%;
 }
+
 .question-show h3 {
   display: inline-block;
   margin:0;
@@ -108,21 +121,59 @@ span {
 .font-small {
   font-size: small;
 }
+
+.font-small  a:hover {
+  color: black
+}
+
 .show-username {
   font-size: small;
   font-style: italic;
   display: inline-block;
 }
+
 .answers{
   margin-left: 1em;
 }
 
 .comments{
-  margin-left: 2em;
-  display: inline-block;
+margin-left: 2em;
+display: inline-block;
+position: absolute;
+width: 70%;
+margin-top: 1em;
+}
+
+.comments li {
+  background-color: #83AFD6;
 }
 
 #edit-q-index {
   font-size: small;
   display: inline-block;
+}
+
+#question-show{
+  border-top: 1px gray dotted;
+  border-bottom: 1px gray dotted;
+  margin: 2%;
+  position: relative;
+  padding: auto;
+}
+
+#answer_body {
+  width: 70%;
+}
+
+#question-show {
+  font-size: 1.25em;
+}
+
+.show-username {
+  font-size: .75em;
+  font-weight: bold;
+}
+
+#comment_body {
+  width: 70%;
 }
