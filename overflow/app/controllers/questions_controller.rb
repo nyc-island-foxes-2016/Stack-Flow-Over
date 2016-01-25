@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 before_action :set_question, except: [:index, :new, :create, :show]
 
   def index
-    @questions = Question.includes(:user)
+    @questions = Question.includes(:user).order(created_at: :desc)
   end
 
   def new

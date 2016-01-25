@@ -1,8 +1,10 @@
 <li>
-  <span>
-    <%= link_to "<span> &uarr; </span>".html_safe, new_question_vote_path(question.id, vote_type: 1)%> <%= question.vote_score %>
-      <%= link_to "<span> &darr; </span>".html_safe, new_question_vote_path(question.id, vote_type: -1) %>
-  </span>
+  <div class="vote-arrows">
+    <p><%= link_to "<span> &#x25B3; </span>".html_safe, new_question_vote_path(question.id, vote_type: 1)%> </p>
+    <p> <%= question.vote_score %> </p>
+      <p> <%= link_to "<span> &#x25BD; </span>".html_safe, new_question_vote_path(question.id, vote_type: -1) %></p>
+  </div>
+  <div class = "question-text">
   <%=link_to question.body, question_path(question) %>
     <div class="show-username">
     - <%=question.user.name%>, <%=std_date_format(question.created_at)%>
@@ -11,5 +13,6 @@
     <% if current_user == question.user %>
      <%=link_to "Edit", edit_question_path(question)%>
     <% end %>
+  </div>
 </div>
 </li>

@@ -1,5 +1,69 @@
+html{
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+header {
+  margin: 0;
+  padding: 50px;
+  border: 1px solid black;
+  background-color: #1affff;
+
+}
+
+header h1{
+  display: inline;
+}
+
+header h1 a {
+  color: black
+}
+
+header nav{
+  display: inline-block;
+  float: right;
+  padding-top: 1%;
+}
+
+li {
+  list-style-type: none;
+  position: relative;
+  padding: 0;
+  border-top: 1px gray dotted;
+}
+
 a {
   text-decoration: none;
+}
+
+.vote-arrows {
+    text-align: center;
+    display: inline-block;
+    margin: 0;
+}
+
+.vote-arrows p {
+margin: 0;
+}
+
+.question-text{
+  position: absolute;
+  color: black;
+  display: inline-block;
+  top: 35%;
+  bottom: 35%;
+  margin-left: 1%;
+}
+
+.question-text a{
+  color: black;
+}
+
+
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .best-answer-form{
