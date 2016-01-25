@@ -5,18 +5,22 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div id="nav">
-    <%= link_to 'Home', root_path %> |
-    <% if current_user %>
-      Welcome, <%=current_user.name %> |
-      <%= link_to 'Log out', session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Register', new_user_path %> |
-      <%= link_to 'Log in', new_session_path %>
-    <%end %>
-  </div>
+  <header>
+    <h1> <%= link_to 'Stack Flow Over', root_path %></h1>
+    <nav>
+      <%= link_to 'Home', root_path %> |
+      <% if current_user %>
+        Welcome, <%=current_user.name %> |
+        <%= link_to 'Log out', session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Register', new_user_path %> |
+        <%= link_to 'Log in', new_session_path %>
+      <%end %>
+    </nav>
+</header>
 
 <%= yield %>
 
