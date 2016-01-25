@@ -4,10 +4,11 @@
         <span class="chosen-answer"> &#x2606; </span>
       <% end %>
 
-    <span>
-      <%= link_to "<span> &uarr; </span>".html_safe, new_answer_vote_path(answer.id, vote_type: 1)%> <%= answer.vote_score %>
-        <%= link_to "<span> &darr; </span>".html_safe, new_answer_vote_path(answer.id, vote_type: -1) %>
-    </span>
+    <div class="vote-arrows">
+      <p><%= link_to "<span> &#x25B3; </span>".html_safe, new_answer_vote_path(answer.id, vote_type: 1)%> </p>
+        <p><%= answer.vote_score %></p>
+        <p><%= link_to "<span> &#x25BD; </span>".html_safe, new_answer_vote_path(answer.id, vote_type: -1) %></p>
+    </div>
 
       <%=answer.body%>
       <div class="show-username">
