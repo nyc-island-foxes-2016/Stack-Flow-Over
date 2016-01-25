@@ -1,4 +1,7 @@
 class VotesController < ApplicationController
+
+  #This should be create and you don't need a new. Then in the view
+  # use button_to to issue a post request. Or use link_to with method: :post as an option
   def new
     if logged_in?
       @vote = Vote.new
@@ -23,6 +26,10 @@ class VotesController < ApplicationController
     {vote_type: params[:vote_type], user_id: current_user.id, voteable_type: voteable_type_setter, voteable_id: voteable_id_setter }
   end
 
+=begin 
+    'votable: object' is fine. you don't need to manage the type and id separately.
+=end
+  
   def voteable_type_setter
     if params[:question_id]
       voteable_type = "Question"

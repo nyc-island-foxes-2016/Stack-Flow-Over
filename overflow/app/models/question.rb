@@ -2,6 +2,8 @@ class Question < ActiveRecord::Base
   validates   :body, presence: true
 
   belongs_to  :user
+
+  # This feels more like a has one
   belongs_to  :best_answer, class_name: 'Answer'
 
   has_many    :answers
