@@ -1,8 +1,9 @@
 <li>
-  <span>
-    <%= link_to "<span> &uarr; </span>".html_safe, new_comment_vote_path(comment.id, vote_type: 1)%> <%= comment.vote_score %>
-      <%= link_to "<span> &darr; </span>".html_safe, new_comment_vote_path(comment.id, vote_type: -1) %>
-  </span>
+  <div class="vote-arrows">
+    <p><%= link_to "<span> &#x25B3; </span>".html_safe, new_comment_vote_path(comment.id, vote_type: 1)%> </p>
+      <p><%= comment.vote_score %></p>
+      <p><%= link_to "<span> &#x25BD; </span>".html_safe, new_comment_vote_path(comment.id, vote_type: -1) %></p>
+  </div>
   <div class="comments">
      <%=comment.body%>
      <div class="show-username"> - <%=comment.user.name%>, <%=std_date_format(comment.created_at)%></div>

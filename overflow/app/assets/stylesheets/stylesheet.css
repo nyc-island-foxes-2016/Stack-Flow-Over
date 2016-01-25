@@ -25,6 +25,15 @@ header nav{
   padding-top: 1%;
 }
 
+#question-show{
+  border-top: 1px gray dotted;
+  border-bottom: 1px gray dotted;
+  margin: 2%;
+  position: relative;
+  padding: auto;
+
+}
+
 li {
   list-style-type: none;
   position: relative;
@@ -59,6 +68,16 @@ margin: 0;
   color: black;
 }
 
+.question-show{
+  display: inline-block;
+  position: absolute;
+  margin-left: 1%;
+  top: 30%;
+}
+.question-show h3 {
+  display: inline-block;
+  margin:0;
+}
 
 span {
   display: inline-block;
@@ -100,6 +119,7 @@ span {
 
 .comments{
   margin-left: 2em;
+  display: inline-block;
 }
 
 #edit-q-index {

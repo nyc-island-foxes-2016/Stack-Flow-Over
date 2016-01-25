@@ -1,14 +1,16 @@
-<div class="Question">
-  <h1><%=@question.body%></h1>
-  <p>Posted by: <%=@question.user.name%></p>
-  <p>Posted on: <%=std_date_format(@question.created_at) %></p>
+<div class="Question" id="question-show">
+    <div class="vote-arrows">
+      <p><%= link_to "<span> &#x25B3; </span>".html_safe, new_question_vote_path(@question.id, vote_type: 1)%> </p>
+      <p> <%= @question.vote_score %> </p>
+        <p> <%= link_to "<span> &#x25BD; </span>".html_safe, new_question_vote_path(@question.id, vote_type: -1) %></p>
+   </div>
+  <div class = "question-show">
+    <h3><%=@question.body%></h3>
+    <div class="show-username">
+      - <%=@question.user.name%>, <%=std_date_format(@question.created_at)%>
+    </div>
+  </div>
 </div>
-<div>
-  <p><%= link_to "<span> &#x25B3; </span>".html_safe, new_question_vote_path(params[:id], vote_type: 1)%> <%= @question.vote_score %>
-      <%= link_to "<span> &#x25BD; </span>".html_safe, new_question_vote_path(params[:id], vote_type: -1) %>
-  </p>
-</div>
-
 
   <% if current_user == @question.user %>
     <div id="edit-question">
