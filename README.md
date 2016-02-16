@@ -1,12 +1,13 @@
 # Stack-Flow-Over
 
-Mini stack Overflow clone using Rails, shallow nesting, ReST principles. 
+Mini stack Overflow clone using Rails, shallow nesting, ReST principles and bcrypt user authorization. 
 
+Team members:
+- Sasha Tailor
 - Natalie Polen
 - Chris Guard
-- Sasha Tailor
 
-Schema:
+Database Schema:
 
 ![schema](schema.png)
 
@@ -20,4 +21,4 @@ User Stories:
 - As a User, I want to leave comments on questions or answers.
 - As a User, I want to select the best answer to a question I posted.
 
-CircleCI: https://circleci.com/gh/nyc-island-foxes-2016/Stack-Flow-Over/1
+
