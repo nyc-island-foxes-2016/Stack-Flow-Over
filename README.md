@@ -1,5 +1,7 @@
 # Stack-Flow-Over
 
+Mini stack Overflow clone using Rails, shallow nesting, ReST principles. 
+
 - Natalie Polen
 - Chris Guard
 - Sasha Tailor
@@ -8,7 +10,7 @@ Schema:
 
 ![schema](schema.png)
 
-Trello board: https://trello.com/b/nI7p1YfY
+User Stories:
 
 - As a User, I want to view all questions, answers and comments on the site.
 - As a User, I want to be able to log in.
@@ -17,6 +19,5 @@ Trello board: https://trello.com/b/nI7p1YfY
 - As a User, I want to be able to answer a question.
 - As a User, I want to leave comments on questions or answers.
 - As a User, I want to select the best answer to a question I posted.
-- As a User, I want to sort the current questions by date, votes, or 'trending'.
 
 CircleCI: https://circleci.com/gh/nyc-island-foxes-2016/Stack-Flow-Over/1
