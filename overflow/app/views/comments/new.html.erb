@@ -1,0 +1,17 @@
+
+
+<% if !!params[:question_id] %>
+  <% url_path = question_comments_path %>
+<% else %>
+  <% url_path = answer_comments_path %>
+<% end %>
+
+<%= form_for @comment, url: url_path do |f|%>
+  <fieldset>
+    <div>
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+    </div>
+    <%= submit_tag 'Post comment' %>
+  </fieldset>
+<% end %>
